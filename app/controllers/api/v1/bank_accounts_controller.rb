@@ -1,6 +1,6 @@
 require_dependency "services/bank_account_operations"
 
-class BankAccountsController < ApplicationController
+class Api::V1::BankAccountsController < ApplicationController
   #before_action :set_bank_account, only: [:show, :update, :destroy]
 
   # GET /bank_accounts
@@ -29,7 +29,7 @@ class BankAccountsController < ApplicationController
     puts params[:ifsc]
     puts params[:balance]
     @result = BankAccountOperations.new(params[:user_id],params[:account_number],params[:ifsc],params[:balance]).call
-    render :json => {"result" => @result}, location: user_bank_accounts_url(@result)
+    render :json => {"result" => @result}, location: api_v1_user_bank_accounts_url(@result)
   end
 
   # PATCH/PUT /bank_accounts/1

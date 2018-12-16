@@ -1,6 +1,6 @@
 require_dependency "services/scratch_card_operations.rb"
 
-class ScratchCardsController < ApplicationController
+class Api::V1::ScratchCardsController < ApplicationController
   before_action :set_scratch_card, only: [:show, :update, :destroy]
 
   # GET /scratch_cards
